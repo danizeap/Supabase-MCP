@@ -30,15 +30,25 @@ export class MissingCredentialsError extends Error {
 export function getSupabase() {
     if (cachedClient)
         return cachedClient;
-    const url = process.env.SUPABASE_URL?.trim();
+    const rawUrl = process.env.SUPABASE_URL?.trim();
     const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY?.trim();
-    if (!url || !serviceKey) {
+    if (!rawUrl || !serviceKey) {
         const missing = [];
-        if (!url)
+        if (!rawUrl)
             missing.push("SUPABASE_URL");
         if (!serviceKey)
             missing.push("SUPABASE_SERVICE_ROLE_KEY");
         throw new MissingCredentialsError(`The plugin is missing its Supabase credentials (${missing.join(" and ")}). Ask whoever set up this plugin to copy ".env.example" to ".env" and fill in the values from the Supabase dashboard (Project Settings).`);
+    }
+    // Normalize to the project's base URL (origin only). This tolerates a very common paste
+    // mistake — using the REST/Storage/S3 endpoint (e.g. https://<ref>.supabase.co/rest/v1/)
+    // instead of the bare Project URL. supabase-js needs just https://<ref>.supabase.co.
+    let url;
+    try {
+        url = new URL(rawUrl).origin;
+    }
+    catch {
+        throw new MissingCredentialsError(`SUPABASE_URL isn't a valid web address. It should look like https://your-project-ref.supabase.co — find it in the Supabase dashboard under Project Settings -> Data API -> Project URL, and remove anything after ".supabase.co".`);
     }
     cachedClient = createClient(url, serviceKey, {
         auth: {
