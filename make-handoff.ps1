@@ -101,10 +101,18 @@ $installLine
 2. If it asks, click "Yes, trust this folder".
 3. Type:  hi
 
-Claude will greet you, show what storage you have, and guide you from there. Or just say what you
-want, like: "upload C:\Users\me\Pictures\logo.png to the brand-logos bucket".
+Claude will greet you, show what storage you have, and guide you from there.
 
-Nothing here can delete or overwrite files, so you can't break anything.
+## Things you can just say
+- "Make a bucket for the fall campaign."
+- "Upload C:\Users\me\Pictures\hero.jpg to campaigns-fall."
+- "What's in the brand-logos bucket?"
+- "Copy the logos from brand-logos into campaigns-fall."
+- "Move draft.png into the archive bucket."
+- "Give me a shareable link for hero.jpg."
+
+Bucket names start with marketing-, brand-, campaigns-, media-, or assets- (Claude will fix yours if
+it doesn't fit). Nothing here can delete or overwrite files, so you can't break anything.
 "@
 Set-Content -Path (Join-Path $out 'START-HERE.md') -Value $startHere -Encoding utf8
 
