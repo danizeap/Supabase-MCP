@@ -64,7 +64,7 @@ npm test        # optional: runs the guardrail tests (should print "pass 10")
 
 Add this folder as a plugin (via your Claude Code plugin marketplace/config). The plugin's
 `.claude-plugin/plugin.json` registers a local stdio MCP server that runs `dist/index.js`. Once
-installed, Claude will have seven `supabase-storage` tools and the `/upload-media` guide available.
+installed, Claude will have eight `supabase-storage` tools and the `/upload-media` guide available.
 
 To verify quickly from a terminal, you can start the server directly — it should print
 `supabase-storage MCP server ready`:
@@ -73,7 +73,7 @@ To verify quickly from a terminal, you can start the server directly — it shou
 npm start
 ```
 
-### The seven tools
+### The eight tools
 
 | Tool | What it does |
 | --- | --- |
@@ -83,7 +83,8 @@ npm start
 | `list_files` | List files in a bucket (optionally in a folder), with sizes and dates |
 | `get_signed_url` | Make a temporary shareable link (default 7 days) — works for private buckets |
 | `get_public_url` | Get the permanent public link — for public buckets |
-| `move_file` | Rename or move a file within a bucket (never overwrites) |
+| `move_file` | Rename or move a file — within a bucket or into another bucket (never overwrites) |
+| `copy_file` | Copy a file — within a bucket or into another bucket — keeping the original (never overwrites) |
 
 ### Bucket naming convention
 

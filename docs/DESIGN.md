@@ -51,7 +51,7 @@ least-privilege guidance.
 - **Lazy client creation.** The Supabase client is created on first use so a missing/malformed `.env`
   yields a friendly error at call time instead of crashing the server on startup.
 
-## The seven tools
+## The eight tools
 
 | Tool | Purpose |
 | --- | --- |
@@ -61,7 +61,8 @@ least-privilege guidance.
 | `list_files` | List files in a bucket/folder, with sizes and timestamps |
 | `get_signed_url` | Time-limited shareable link (default 7 days) — for private buckets |
 | `get_public_url` | Permanent public link — for public buckets |
-| `move_file` | Rename/move within a bucket (never overwrites) |
+| `move_file` | Rename/move a file, within a bucket or across buckets (never overwrites) |
+| `copy_file` | Copy a file, within a bucket or across buckets, keeping the original (never overwrites) |
 
 ## Architecture
 

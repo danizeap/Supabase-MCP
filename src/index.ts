@@ -22,6 +22,7 @@ import listFiles from "./tools/listFiles.js";
 import getSignedUrl from "./tools/getSignedUrl.js";
 import getPublicUrl from "./tools/getPublicUrl.js";
 import moveFile from "./tools/moveFile.js";
+import copyFile from "./tools/copyFile.js";
 
 // Load credentials from the plugin's own .env (dist/index.js -> ../.env), regardless of
 // the working directory the MCP host launches us from.
@@ -38,6 +39,7 @@ const TOOLS: RegisteredTool[] = [
   getSignedUrl,
   getPublicUrl,
   moveFile,
+  copyFile,
 ];
 
 async function main(): Promise<void> {
@@ -72,7 +74,7 @@ async function main(): Promise<void> {
   const transport = new StdioServerTransport();
   await server.connect(transport);
   // stderr is safe for logs (stdout is the MCP channel).
-  console.error("supabase-storage MCP server ready (7 storage tools, additive-only).");
+  console.error("supabase-storage MCP server ready (8 storage tools, additive-only).");
 }
 
 main().catch((err) => {

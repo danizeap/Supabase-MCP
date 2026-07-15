@@ -17,7 +17,8 @@ for them, and explain any error in plain language with the fix.
 - `list_files` — see what's already in a bucket
 - `get_signed_url` — make a temporary shareable link (for private buckets)
 - `get_public_url` — get the permanent web link (for public buckets)
-- `move_file` — rename or reorganize a file
+- `move_file` — rename or move a file (within a bucket, or into another bucket)
+- `copy_file` — copy a file into another place or bucket, keeping the original
 
 There is **no delete tool on purpose** — nothing here can erase or overwrite files, so it's safe to explore.
 
@@ -53,7 +54,9 @@ Ask which they want if it isn't obvious. When unsure, prefer **private** — the
 4. **Share it.**
    - Private bucket → `get_signed_url` (offer the default 7-day link, or ask how long).
    - Public bucket → `get_public_url`.
-5. **Tidy up if needed** with `move_file` to rename or move into a folder.
+5. **Tidy up if needed** with `move_file` to rename or move into a folder — or into another bucket.
+   Use `copy_file` to put a copy in another bucket while leaving the original (e.g. "grab these from
+   this bucket and put them in the new one"). Do multiple files one at a time.
 
 ## Handling common problems (explain, don't panic)
 
