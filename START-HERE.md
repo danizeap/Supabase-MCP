@@ -22,14 +22,34 @@ That's it. You're ready.
 
 ## How to use it
 
-Just talk to Claude in plain language. For a guided walkthrough, type:
+**Easiest:** type this and press enter —
 
 ```
 /upload-media
 ```
 
-Or say things like:
-- *"What storage buckets do we have?"*
+Claude will check the connection, show what's there, and walk you through everything.
+
+**If that doesn't do anything,** just paste this message to Claude instead:
+
+```
+This folder is a tool that lets me manage our Supabase media storage by chatting with you, using
+tools called supabase-storage. Please help me, and do the technical parts for me — I'm not technical.
+
+1. First run list_buckets to check the connection works and show me the storage buckets we have.
+   If it gives a credentials or connection error, tell me to contact whoever set up this folder —
+   I can't fix that myself.
+2. Then ask me what I want to do (usually: upload an image, video, or design file, or get a
+   shareable link for one).
+
+Keep in mind: bucket names must start with marketing-, brand-, campaigns-, media-, or assets-
+(lowercase with dashes) — fix my name if it doesn't fit. Nothing here can delete or overwrite files,
+so it's safe. To share a file: temporary link if it's private, permanent link if it's public.
+
+Start by running list_buckets.
+```
+
+Either way, then just talk to Claude in plain language:
 - *"Make a new bucket for the summer campaign."*
 - *"Upload C:\Users\me\Pictures\logo.png to the brand-logos bucket."*
 - *"Give me a shareable link for logo.png."*
