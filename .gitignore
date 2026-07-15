@@ -1,0 +1,49 @@
+.env
+.env.*
+!.env.example
+!.env.template
+!.env.sample
+# private keys, keystores, and credential files (Drydock's secrets hook also blocks writing these)
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.ppk
+id_rsa
+id_ed25519
+id_ecdsa
+id_dsa
+.envrc
+credentials.json
+secrets.json
+secrets.yaml
+secrets.yml
+secrets.toml
+service-account*.json
+__pycache__/
+*.pyc
+node_modules/
+# NOTE: dist/ is intentionally COMMITTED for this plugin (Owner-approved 2026-07-15) so a
+# non-technical installer needs no build step — the plugin runs dist/index.js directly.
+# Rebuild it with `npm run build` after editing src/. See README + decision-log.md.
+build/
+.next/
+.venv/
+venv/
+tmp/
+temp/
+.DS_Store
+Thumbs.db
+
+# --- Not published to this focused plugin repo (kept locally for development) ---
+# The Drydock/SDD+ engineering framework, its runner scripts, and internal-facing
+# planning docs live locally but are not part of the public plugin. The plugin's
+# design rationale is published in docs/DESIGN.md instead.
+/AGENTS.md
+/CLAUDE.md
+/PROJECT_CONTEXT.md
+/PROJECT_CONTEXT.template.md
+/scripts/sdd.ps1
+/scripts/sdd.py
+/sdd-plus/

@@ -1,0 +1,9 @@
+{
+  "name": "supabase-storage",
+  "version": "1.0.0",
+  "description": "Create Supabase Storage buckets and upload media (images, video, design assets) conversationally. Storage-only and additive-only: no database access, no deleting, no overwriting.",
+  "author": {
+    "name": "danizeap"
+  },
+  "mcpServers": "./mcp/supabase-storage.json"
+}

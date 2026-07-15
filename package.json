@@ -1,0 +1,38 @@
+{
+  "name": "supabase-storage-mcp",
+  "version": "1.0.0",
+  "description": "Local stdio MCP server exposing Supabase Storage operations (buckets, uploads, shareable links). Additive-only, storage-only.",
+  "type": "module",
+  "license": "MIT",
+  "private": true,
+  "bin": {
+    "supabase-storage-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "mcp",
+    ".claude-plugin",
+    "skills",
+    ".env.example",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "test": "npm run build && node --test",
+    "prepare": "npm run build"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "@supabase/supabase-js": "^2.110.5",
+    "dotenv": "^17.4.2",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3",
+    "@types/node": "^22.10.5"
+  }
+}
