@@ -26,7 +26,9 @@ import moveFile from "./tools/moveFile.js";
 // Load credentials from the plugin's own .env (dist/index.js -> ../.env), regardless of
 // the working directory the MCP host launches us from.
 const here = dirname(fileURLToPath(import.meta.url));
-loadEnv({ path: resolve(here, "..", ".env") });
+// quiet: true — dotenv's default startup banner writes to stdout, which is the MCP
+// JSON-RPC channel for a stdio server. Suppress it so stdout carries only protocol traffic.
+loadEnv({ path: resolve(here, "..", ".env"), quiet: true });
 
 const TOOLS: RegisteredTool[] = [
   listBuckets,

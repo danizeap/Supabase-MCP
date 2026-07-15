@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "supabase-storage": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["${CLAUDE_PROJECT_DIR:-.}/dist/index.js"]
+    }
+  }
+}

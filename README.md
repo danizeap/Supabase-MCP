@@ -10,6 +10,9 @@ the official Supabase MCP, which has no Storage bucket API.
 - 🚫 No overwrite. Uploads and moves never replace an existing file — a name clash fails cleanly.
 - 🚫 No database access. The plugin exposes storage tools only; it cannot read or change your data.
 
+> **Were you handed this folder to use, not to set up?** Open **[START-HERE.md](START-HERE.md)** —
+> a 3-minute, plain-language guide. The rest of this README is for whoever installs and configures it.
+
 ---
 
 ## Part 1 — Setup (for whoever installs it)
